@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16タイプ一覧 ― ギャンブラータイプ診断</title>
+<meta name="description" content="ギャンブラータイプ診断に登場する全16タイプの一覧。各タイプの特徴・決めゼリフ・強み・弱みをまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-motifs" aria-hidden="true"></div>
+<div class="m-stripe-top" aria-hidden="true"></div>
+
+<div class="page">
+  <p class="page-eyebrow">ALL 16 TYPES</p>
+  <h1>ギャンブラー16タイプ一覧</h1>
+  <p class="page-lead">あなたはどのタイプ?全16タイプの個性をチェック。カードをタップすると、そのタイプの診断結果を表示します。</p>
+
+  <div class="type-grid" id="type-grid"></div>
+
+  <a class="btn btn-primary back" href="index.html">診断をやってみる</a>
+</div>
+
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="index.html">ホーム</a><span class="dot">·</span>
+    <a href="types.html">16タイプ一覧</a><span class="dot">·</span>
+    <a href="about.html">運営者・お問い合わせ</a><span class="dot">·</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </nav>
+  <p class="copyright">© 2026 ギャンブラータイプ診断</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="avatar.js"></script>
+<script>
+  (function () {
+    var order = ["BIHW","BIHF","BICW","BICF","BLHW","BLHF","BLCW","BLCF",
+                 "SIHW","SIHF","SICW","SICF","SLHW","SLHF","SLCW","SLCF"];
+    var grid = document.getElementById("type-grid");
+    order.forEach(function (code) {
+      var t = CHARACTERS[code];
+      if (!t) return;
+      var a = document.createElement("a");
+      a.className = "type-card";
+      a.href = "index.html?type=" + code;
+      a.innerHTML =
+        '<div class="tc-top"><span class="tc-emoji">' + gamblerAvatar(code, 52) + '</span><span class="tc-code">' + code + '</span></div>' +
+        '<div class="tc-name">' + t.name + '</div>' +
+        '<div class="tc-copy">' + t.copy + '</div>' +
+        '<div class="tc-desc">' + t.desc + '</div>' +
+        '<div class="tc-quote">「' + t.quote + '」</div>';
+      grid.appendChild(a);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ギャンブラータイプ診断 ― あなたはどの賭け方?【16タイプ】</title>
+<meta name="description" content="日常の16の質問に答えるだけ。あなたが16タイプのうちどのギャンブラーかを診断します。相性・強み弱み・辛口診断つき。結果はX/LINE/Instagramでシェアできます。">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- OGP / Twitterカード（SNSシェア用）-->
+<!-- ※公開後、content の URL を自分の本番ドメインに置き換えてください -->
+<meta property="og:title" content="ギャンブラータイプ診断【16タイプ】">
+<meta property="og:description" content="あなたはどんな賭け方をするタイプ?日常の質問16問で診断!相性・辛口診断つき。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ギャンブラータイプ診断【16タイプ】">
+<meta name="twitter:description" content="あなたはどんな賭け方をするタイプ?日常の質問16問で診断!">
+<meta name="twitter:image" content="ogp.png">
+
+<!-- ▼▼▼ Google アナリティクス(GA4)：G-XXXXXXXXXX を自分の測定IDに置き換えてコメントを外す ▼▼▼
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+▲▲▲ -->
+
+<!-- フォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- 画像保存用 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<!-- QRコード生成（友達と相性チェック用）-->
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@04f46c6a0708418cb7b96fc563eacae0fbf77674/qrcode.min.js" defer></script>
+
+<!-- ▼▼▼ AdSense：審査通過後、ca-pub-XXXXXXXXXXXXXXXX を自分のIDに置き換えてコメントを外す ▼▼▼
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+▲▲▲ -->
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-motifs" aria-hidden="true"></div>
+<div class="m-stripe-top" aria-hidden="true"></div>
+
+<main class="stage">
+
+  <!-- ===== スタート画面 ===== -->
+  <section id="screen-start" class="screen is-active">
+    <p class="eyebrow">GAMBLER TYPE DIAGNOSIS</p>
+    <div class="m-stripe" aria-hidden="true"></div>
+    <h1 class="title">ギャンブラー<br>タイプ診断</h1>
+    <p class="lead">あなたは、どんな賭け方をする人間か。<br>日常の16の質問が、本性を暴く。<br>診断結果は<strong>全16タイプ</strong>。</p>
+    <button class="btn btn-primary" id="btn-start">診断をはじめる</button>
+    <p class="note">所要時間 約1分 / 全16問・5段階で回答</p>
+    <p class="age-note">※20歳未満の方はギャンブルできません / 本診断はエンタメ目的です</p>
+  </section>
+
+  <!-- ===== 質問画面 ===== -->
+  <section id="screen-quiz" class="screen">
+    <div class="progress">
+      <div class="progress-meta">
+        <span id="q-counter">Q1 / 16</span>
+        <span id="q-percent">6%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+
+    <div class="q-card" id="q-card">
+      <p class="q-number" id="q-number">QUESTION 01</p>
+      <h2 class="q-text" id="q-text">―</h2>
+      <div class="options" id="options"></div>
+      <p class="scale-caption">丸をタップして答えてね</p>
+    </div>
+
+    <button class="btn btn-ghost" id="btn-back">← ひとつ戻る</button>
+  </section>
+
+  <!-- ===== 結果画面 ===== -->
+  <section id="screen-result" class="screen">
+
+    <!-- 画像保存・シェアの対象カード -->
+    <div id="capture" class="capture-card">
+      <p class="eyebrow">YOUR GAMBLER TYPE</p>
+      <div class="m-stripe" aria-hidden="true"></div>
+      <div class="result-emoji" id="r-emoji">🚀</div>
+      <p class="result-code" id="r-code">―</p>
+      <h2 class="result-name" id="r-name">―</h2>
+      <p class="result-copy" id="r-copy">―</p>
+      <p class="result-quote" id="r-quote">―</p>
+      <div class="axes" id="r-axes"></div>
+      <p class="capture-credit">ギャンブラータイプ診断</p>
+    </div>
+
+    <div class="result-card">
+      <p class="result-desc" id="r-desc">―</p>
+      <div class="result-rows">
+        <div class="result-row">
+          <span class="rr-label">相性</span>
+          <span class="rr-value" id="r-good">―</span>
+        </div>
+        <div class="result-row win">
+          <span class="rr-label">勝てる相手</span>
+          <span class="rr-value" id="r-wins">―</span>
+        </div>
+        <div class="result-row lose">
+          <span class="rr-label">苦手な相手</span>
+          <span class="rr-value" id="r-loses">―</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trait-card">
+      <div class="trait">
+        <span class="trait-label trait-strong">💪 強み</span>
+        <p class="trait-text" id="r-strong">―</p>
+      </div>
+      <div class="trait">
+        <span class="trait-label trait-weak">⚠️ 弱点</span>
+        <p class="trait-text" id="r-weak">―</p>
+      </div>
+      <div class="trait">
+        <span class="trait-label trait-advice">💡 アドバイス</span>
+        <p class="trait-text" id="r-advice">―</p>
+      </div>
+    </div>
+
+    <div class="rec-card">
+      <p class="rec-eyebrow">★ あなたへのおすすめ</p>
+      <div class="rec-item">
+        <span class="rec-label">パチンコ / スロット</span>
+        <span class="rec-value" id="r-pick">―</span>
+      </div>
+      <div class="rec-item">
+        <span class="rec-label">賭けゲーム</span>
+        <span class="rec-value" id="r-game">―</span>
+      </div>
+      <p class="rec-why" id="r-why">―</p>
+    </div>
+
+    <div class="roast-card">
+      <span class="roast-label">🌶️ 辛口ひとこと</span>
+      <p class="roast-text" id="r-roast">―</p>
+    </div>
+
+    <!-- シェア -->
+    <div class="share">
+      <p class="share-title">結果をシェアしよう</p>
+      <div class="share-grid">
+        <a class="sbtn x" id="btn-x" target="_blank" rel="noopener"><span>𝕏</span>ポスト</a>
+        <a class="sbtn line" id="btn-line" target="_blank" rel="noopener"><span>💬</span>LINE</a>
+        <button class="sbtn native" id="btn-native" type="button"><span>📲</span>その他/Insta</button>
+        <button class="sbtn save" id="btn-save" type="button"><span>🖼️</span>画像保存</button>
+        <button class="sbtn copy" id="btn-copy" type="button"><span>🔗</span>リンク</button>
+      </div>
+      <p class="share-hint">Instagramは「画像保存」してストーリーズに貼ろう📸</p>
+
+      <div class="qr-box">
+        <div class="qr-code" id="qrcode" aria-label="この結果のQRコード"></div>
+        <p class="qr-label">📱 友達にスキャンしてもらって<br><strong>相性をチェック</strong>しよう!</p>
+      </div>
+
+      <button class="btn btn-ghost" id="btn-retry">もう一度診断する</button>
+      <a class="btn btn-ghost" href="types.html">16タイプ一覧を見る</a>
+    </div>
+
+    <!-- ▼▼▼ 広告枠（AdSense審査通過後にコメントを外し、自分の slot 番号を入れる） ▼▼▼ -->
+    <div class="ad-slot" aria-label="広告">
+      <span class="ad-placeholder">Advertisement</span>
+      <!--
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="0000000000"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
+    </div>
+    <!-- ▲▲▲ 広告枠ここまで ▲▲▲ -->
+
+    <p class="support-note">
+      ギャンブルがやめられない・お金や生活に支障が出ている方は、ひとりで抱えこまず
+      <a href="https://www.ncasa-japan.jp/you" target="_blank" rel="noopener">ギャンブル依存症の相談窓口</a>へ。
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="index.html">ホーム</a>
+    <span class="dot">·</span>
+    <a href="types.html">16タイプ一覧</a>
+    <span class="dot">·</span>
+    <a href="about.html">運営者・お問い合わせ</a>
+    <span class="dot">·</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </nav>
+  <p class="copyright">© 2026 ギャンブラータイプ診断</p>
+  <p class="disclaimer">
+    ※本診断はエンターテインメント目的です。賭け事は20歳になってから、適度に、自己責任で。
+    のめり込みに不安がある方は <a href="https://www.ncasa-japan.jp/you" target="_blank" rel="noopener">相談窓口</a> へ。
+  </p>
+</footer>
+
+<script src="data.js"></script>
+<script src="avatar.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>

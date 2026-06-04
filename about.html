@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>運営者情報・お問い合わせ ― ギャンブラータイプ診断</title>
+<meta name="description" content="ギャンブラータイプ診断の運営者情報・お問い合わせ先・免責事項・ギャンブル依存症の相談窓口について。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@300;400;500&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page h2{ font-family:var(--display); font-weight:700; color:var(--ink); font-size:1.15rem; margin:2rem 0 .6rem; border-left:3px solid var(--accent); padding-left:.7rem; }
+  .page p, .page li{ font-family:var(--jp); line-height:1.95; color:var(--body); }
+  .page a{ color:var(--accent); }
+  .page ul{ padding-left:1.3rem; }
+  .info-table{ width:100%; border-collapse:collapse; margin:.4rem 0; }
+  .info-table th{ text-align:left; width:9em; padding:.6rem .4rem; color:var(--muted); font-family:var(--display); font-weight:700; font-size:.9rem; vertical-align:top; }
+  .info-table td{ padding:.6rem .4rem; border-bottom:1px solid var(--line); font-family:var(--jp); color:var(--ink); }
+  .callout{ background:var(--card-soft); border:1px solid var(--line); border-radius:14px; padding:1rem 1.2rem; margin:1rem 0; }
+  .contact-form{ display:flex; flex-direction:column; gap:1.1rem; max-width:520px; margin-top:1rem; }
+  .field{ display:flex; flex-direction:column; gap:.4rem; }
+  .field-label{ font-family:var(--display); font-weight:700; font-size:.9rem; color:var(--ink); }
+  .field-label em{ font-style:normal; font-size:.7rem; color:#fff; background:var(--lose); padding:.1rem .5rem; border-radius:99px; margin-left:.4rem; }
+  .contact-form input, .contact-form textarea{
+    font-family:var(--jp); font-size:1rem; color:var(--ink);
+    background:var(--card); border:1.5px solid var(--line); border-radius:12px;
+    padding:.8rem 1rem; width:100%; transition:border-color .18s ease, box-shadow .18s ease;
+  }
+  .contact-form input:focus, .contact-form textarea:focus{
+    outline:none; border-color:var(--accent); box-shadow:0 0 0 4px rgba(108,99,255,.12);
+  }
+  .contact-form textarea{ resize:vertical; line-height:1.7; }
+  .contact-form .btn-primary{ align-self:flex-start; }
+  .form-note{ font-size:.8rem; color:var(--muted); margin-top:.9rem; line-height:1.7; }
+</style>
+</head>
+<body>
+<div class="bg-motifs" aria-hidden="true"></div>
+<div class="m-stripe-top" aria-hidden="true"></div>
+
+<div class="page">
+  <p class="page-eyebrow">ABOUT &amp; CONTACT</p>
+  <h1>運営者情報・お問い合わせ</h1>
+  <p class="page-lead">「ギャンブラータイプ診断」をご利用いただきありがとうございます。本サイトに関する情報とお問い合わせ先をご案内します。</p>
+
+  <h2>運営者情報</h2>
+  <table class="info-table">
+    <tr><th>サイト名</th><td>ギャンブラータイプ診断</td></tr>
+    <tr><th>運営者</th><td>先端恐怖症</td></tr>
+    <tr><th>開設</th><td>2026年</td></tr>
+  </table>
+
+  <h2>お問い合わせ</h2>
+  <p>ご意見・ご感想・不具合のご報告などは、下記フォームよりお気軽にお送りください。いただいた内容は運営者のメールに直接届きます。</p>
+
+  <!-- FormSubmit フォーム（受信先: smart.cost.info@gmail.com）
+       ※初回送信時に FormSubmit から確認メールが届くので、リンクを押して有効化してください（1回だけ）。
+       ※メールアドレスをHTMLに出したくない場合は、有効化後に発行される
+         ランダムID版URL（https://formsubmit.co/xxxxxxxx）に差し替えるとアドレスを隠せます。 -->
+  <form class="contact-form" action="https://formsubmit.co/smart.cost.info@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="【ギャンブラータイプ診断】お問い合わせ">
+    <input type="hidden" name="_captcha" value="true">
+    <input type="hidden" name="_template" value="table">
+    <!-- ボット対策（人間には見えない） -->
+    <input type="text" name="_honey" style="display:none">
+
+    <label class="field">
+      <span class="field-label">お名前 <em>必須</em></span>
+      <input type="text" name="name" required placeholder="例：山田 太郎">
+    </label>
+    <label class="field">
+      <span class="field-label">メールアドレス <em>必須</em></span>
+      <input type="email" name="email" required placeholder="返信先のメールアドレス">
+    </label>
+    <label class="field">
+      <span class="field-label">お問い合わせ内容 <em>必須</em></span>
+      <textarea name="message" rows="6" required placeholder="ご意見・ご感想・不具合の内容など"></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">送信する</button>
+  </form>
+  <p class="form-note">※送信いただいた内容は、お問い合わせ対応の目的のみに利用します。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+
+  <h2>免責事項</h2>
+  <p>本サイトの診断結果はエンターテインメントを目的としたものであり、その正確性・有用性を保証するものではありません。本サイトの利用により生じたいかなる損害についても、運営者は一切の責任を負いません。賭け事は、20歳になってから、法令を守り、適度に、自己責任でお楽しみください。</p>
+
+  <h2>ギャンブル等依存症について</h2>
+  <p>ギャンブルがやめられない、お金や生活・人間関係に支障が出ているなど、不安を感じる方はひとりで抱え込まず、専門の相談窓口にご相談ください。</p>
+  <ul>
+    <li><a href="https://www.ncasa-japan.jp/you" target="_blank" rel="noopener">特定非営利活動法人 ASK／依存症に関する相談</a></li>
+    <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000070789.html" target="_blank" rel="noopener">厚生労働省 ギャンブル等依存症でお悩みの方へ</a></li>
+  </ul>
+
+  <h2>広告について</h2>
+  <p>本サイトは第三者配信の広告サービスを利用する場合があります。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+
+  <a class="btn btn-ghost back" href="index.html">← 診断にもどる</a>
+</div>
+
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="index.html">ホーム</a><span class="dot">·</span>
+    <a href="types.html">16タイプ一覧</a><span class="dot">·</span>
+    <a href="about.html">運営者・お問い合わせ</a><span class="dot">·</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </nav>
+  <p class="copyright">© 2026 ギャンブラータイプ診断</p>
+</footer>
+</body>
+</html>
