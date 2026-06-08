@@ -1,3 +1,1 @@
-# Google AdSense 用 ads.txt
-# 審査通過後、下の XXXXXXXXXXXXXXXX を自分のパブリッシャーID（pub-で始まる番号）に置き換えてください。
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-6824908048752622, DIRECT, f08c47fec0942fa0
