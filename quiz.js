@@ -218,7 +218,8 @@
     setText("r-code", code);
     // オリジナルSVGアバター（絵文字の代わり）
     var emojiBox = document.getElementById("r-emoji");
-    if (typeof gamblerAvatar === "function") emojiBox.innerHTML = gamblerAvatar(code, 132);
+    if (typeof gamblerVisual === "function") emojiBox.innerHTML = gamblerVisual(code, 132);
+    else if (typeof gamblerAvatar === "function") emojiBox.innerHTML = gamblerAvatar(code, 132);
     else emojiBox.textContent = t.emoji;
     setText("r-name", t.name);
     setText("r-copy", "“" + t.copy + "”");

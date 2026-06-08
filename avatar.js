@@ -135,4 +135,16 @@
   }
 
   global.gamblerAvatar = avatar;
+
+  // 画像優先版：chars/コード.png があればその画像、無ければSVGアバターにフォールバック。
+  // 画像を chars/ に置くだけで自動的に切り替わる。
+  function visual(code, size) {
+    const px = size || 120;
+    return (
+      '<img class="char-img" src="chars/' + code + '.png" alt="' + code +
+      '" width="' + px + '" height="' + px +
+      '" onerror="this.outerHTML=gamblerAvatar(\'' + code + '\',' + px + ')">'
+    );
+  }
+  global.gamblerVisual = visual;
 })(window);
