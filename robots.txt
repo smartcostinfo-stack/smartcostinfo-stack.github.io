@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smartcostinfo-stack.github.io/sitemap.xml
